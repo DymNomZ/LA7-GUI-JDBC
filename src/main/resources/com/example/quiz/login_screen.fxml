@@ -16,17 +16,27 @@
       </Label>
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0" spacing="20.0">
          <children>
-            <Label text="Name">
+            <Label prefHeight="30.0" prefWidth="85.0" text="Name">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="nameTF" />
+            <TextField fx:id="nameTF" alignment="CENTER" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0" spacing="20.0">
+         <children>
+            <Label text="Password">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="passwordTF" alignment="CENTER" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="51.0" prefWidth="600.0" spacing="20.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#login" text="Login">
+            <Button mnemonicParsing="false" onAction="#login" prefHeight="43.0" prefWidth="90.0" text="Login">
                <font>
                   <Font size="20.0" />
                </font>

@@ -8,6 +8,7 @@ import java.util.Objects;
 public class LoginScreen {
 
     public TextField nameTF;
+    public TextField passwordTF;
 
     public void createAccount(){
 
@@ -17,6 +18,7 @@ public class LoginScreen {
     public void login(){
 
         String enteredName = nameTF.getText();
+        String enteredPass = passwordTF.getText();
         boolean match = false;
         String type = "";
 
@@ -32,6 +34,7 @@ public class LoginScreen {
 
             while(resultSet.next()){
                 if(Objects.equals(resultSet.getString("name"), enteredName)){
+                    if(Objects.equals(resultSet.getString("password"), enteredPass))
                     match = true;
                     type = resultSet.getString("type");
                     break;
