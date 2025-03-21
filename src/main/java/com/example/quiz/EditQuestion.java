@@ -60,7 +60,7 @@ public class EditQuestion {
             rowsAffected += statement.executeUpdate();
 
             if(rowsAffected >= 1) {
-                System.out.println("Successfully added " + rowsAffected + " rows");
+                System.out.println("Successfully modified " + rowsAffected + " rows");
                 if (listener != null) {
                     listener.onQuestionAdded();
                     cancel();

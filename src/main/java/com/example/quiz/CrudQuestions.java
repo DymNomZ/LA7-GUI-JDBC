@@ -80,13 +80,38 @@ public class CrudQuestions implements QuestionAddedListener, QuestionEditListene
     }
 
     public void edit(){
-        HelloApplication.MAIN_STAGE.setScene(Scenes.EDIT_QUESTION);
-        EditQuestion editQuestionController = (EditQuestion) Scenes.editquesfxml.getController();
-        editQuestionController.listener = this;
-        editQuestionController.setQuestion(selectedQuestion);
+        if(selectedQuestion != null){
+            HelloApplication.MAIN_STAGE.setScene(Scenes.EDIT_QUESTION);
+            EditQuestion editQuestionController = (EditQuestion) Scenes.editquesfxml.getController();
+            editQuestionController.listener = this;
+            editQuestionController.setQuestion(selectedQuestion);
+        }
     }
 
     public void delete(){
+
+        String URL = "jdbc:mysql://localhost:3306/csit228f2";
+        String USER = "root";
+        String PASSWORD = "";
+        try(Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            PreparedStatement statement = connection.prepareStatement(
+                    "DELETE FROM questions WHERE id = ?"
+            )){
+
+            statement.setInt(1, selectedQuestion.id);
+
+            int rowsAffected = 0, j = 0;
+
+            rowsAffected += statement.executeUpdate();
+
+            if(rowsAffected >= 1) {
+                System.out.println("Successfully deleted " + rowsAffected + " rows");
+                initialize();
+            }
+
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
 
     }
 
