@@ -1,5 +1,6 @@
 package com.example.quiz;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
@@ -14,14 +15,18 @@ public class CrudQuestions {
     public Button editBtn;
     public Button deleteBtn;
     public Button logoutBtn;
-    public ListView questionsLV;
-    ObservableList<Question> questions = FXCollections.observableArrayList();
+    public ListView<Question> questionsLV;
+    ObservableList<Question> questions;
 
-    public void loadQuestions(){
+    public void initialize(){
 
         String URL = "jdbc:mysql://localhost:3306/csit228f2";
         String USER = "root";
         String PASSWORD = "";
+
+        questions = FXCollections.observableArrayList();
+
+        questionsLV.setItems(questions);
 
         try(Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
             Statement statement = connection.createStatement()){
@@ -37,15 +42,13 @@ public class CrudQuestions {
                 String choice_c = resultSet.getString("choice_c");
                 String choice_d = resultSet.getString("choice_d");
 
-                System.out.println(question + " " + choice_a + " " + choice_b + " " + choice_c + " " + choice_d);
+                System.out.println("FROM CRUD | " + question + " " + choice_a + " " + choice_b + " " + choice_c + " " + choice_d);
                 questions.add(new Question(question, choice_a, choice_b, choice_c, choice_d));
             }
 
         }catch(SQLException e){
             throw new RuntimeException(e);
         }
-
-        questionsLV.setItems(questions);
 
     }
 

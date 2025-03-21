@@ -14,7 +14,7 @@
          <font>
             <Font size="20.0" />
          </font></Label>
-      <ListView fx:id="questionsLV" onEditStart="#loadQuestions" prefHeight="200.0" prefWidth="200.0" />
+      <ListView fx:id="questionsLV" prefHeight="200.0" prefWidth="200.0" />
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
          <children>
             <Button fx:id="addBtn" mnemonicParsing="false" text="Add">

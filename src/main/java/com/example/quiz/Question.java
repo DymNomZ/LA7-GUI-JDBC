@@ -11,8 +11,4 @@ public class Question {
         this.choices = choices;
     }
 
-
-
-
-
 }

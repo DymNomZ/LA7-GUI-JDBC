@@ -46,7 +46,7 @@ public class HelloController {
                 String choice_c = resultSet.getString("choice_c");
                 String choice_d = resultSet.getString("choice_d");
 
-                System.out.println(question + " " + choice_a + " " + choice_b + " " + choice_c + " " + choice_d);
+                System.out.println("FROM QUIZ | " +  question + " " + choice_a + " " + choice_b + " " + choice_c + " " + choice_d);
                 questions.add(new Question(question, choice_a, choice_b, choice_c, choice_d));
             }
 
