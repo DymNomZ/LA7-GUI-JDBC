@@ -9,7 +9,7 @@ import javafx.scene.control.ListView;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class CrudQuestions implements QuestionAddedListener {
+public class CrudQuestions implements QuestionAddedListener, QuestionEditListener {
 
     public Button addBtn;
     public Button editBtn;
@@ -17,7 +17,7 @@ public class CrudQuestions implements QuestionAddedListener {
     public Button logoutBtn;
     public ListView<Question> questionsLV;
     ObservableList<Question> questions;
-    static Question selectedQuestion = null;
+    Question selectedQuestion = null;
 
     public void initialize(){
 
@@ -54,11 +54,6 @@ public class CrudQuestions implements QuestionAddedListener {
 
     }
 
-    @Override
-    public void onQuestionAdded() { // Implement listener method
-        initialize();
-    }
-
     public void logout(){
         HelloApplication.MAIN_STAGE.setScene(Scenes.LOGIN_SCREEN);
     }
@@ -68,14 +63,27 @@ public class CrudQuestions implements QuestionAddedListener {
         System.out.println(selectedQuestion.question);
     }
 
+    @Override
+    public void onQuestionAdded() { // Implement listener method
+        initialize();
+    }
+
     public void add(){
         HelloApplication.MAIN_STAGE.setScene(Scenes.ADD_QUESTION);
         AddQuestion addQuestionController = (AddQuestion) Scenes.addquesfxml.getController();
         addQuestionController.listener = this;
     }
 
+    @Override
+    public void onQuestionEdited() {
+        initialize();
+    }
+
     public void edit(){
         HelloApplication.MAIN_STAGE.setScene(Scenes.EDIT_QUESTION);
+        EditQuestion editQuestionController = (EditQuestion) Scenes.editquesfxml.getController();
+        editQuestionController.listener = this;
+        editQuestionController.setQuestion(selectedQuestion);
     }
 
     public void delete(){

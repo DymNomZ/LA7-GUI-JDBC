@@ -74,24 +74,27 @@ public class HelloController {
         if(actionEvent.getSource() == btnBack){
             page--;
         }else {
-            if(page >= 5){
+            if(page >= questions.size()){
                 HelloApplication.MAIN_STAGE.close();
             }
             page++;
         }
 
-        lbQuestion.setText("Question " + page + ": " + questions.get(page-1).question);
-        List<Button> btnClones = new ArrayList<>();
-        btnClones.add(btnA);
-        btnClones.add(btnB);
-        btnClones.add(btnC);
-        btnClones.add(btnD);
-        for(int i = 0; i < questions.get(page-1).choices.length; i++){
-            int rand = (int) (Math.random() * btnClones.size());
-            Button b = btnClones.remove(rand);
-            b.setText(questions.get(page-1).choices[i]);
-            b.setBackground(Background.fill(Paint.valueOf("WHITE")));
+        if(page <= questions.size()){
+            lbQuestion.setText("Question " + page + ": " + questions.get(page-1).question);
+            List<Button> btnClones = new ArrayList<>();
+            btnClones.add(btnA);
+            btnClones.add(btnB);
+            btnClones.add(btnC);
+            btnClones.add(btnD);
+            for(int i = 0; i < questions.get(page-1).choices.length; i++){
+                int rand = (int) (Math.random() * btnClones.size());
+                Button b = btnClones.remove(rand);
+                b.setText(questions.get(page-1).choices[i]);
+                b.setBackground(Background.fill(Paint.valueOf("WHITE")));
+            }
         }
+
     }
 
     public void onAnswerClick(ActionEvent actionEvent) {
