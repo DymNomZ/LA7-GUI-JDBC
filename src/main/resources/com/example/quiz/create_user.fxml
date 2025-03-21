@@ -73,5 +73,10 @@
             </Button>
          </children>
       </HBox>
+      <Label fx:id="error" textFill="RED">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </VBox>

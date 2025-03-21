@@ -1,5 +1,6 @@
 package com.example.quiz;
 
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.sql.*;
@@ -9,9 +10,9 @@ public class LoginScreen {
 
     public TextField nameTF;
     public TextField passwordTF;
+    public Label error;
 
     public void createAccount(){
-
         HelloApplication.MAIN_STAGE.setScene(Scenes.CREATE_USER);
     }
 
@@ -19,7 +20,8 @@ public class LoginScreen {
 
         String enteredName = nameTF.getText();
         String enteredPass = passwordTF.getText();
-        boolean match = false;
+        boolean matchName = false;
+        boolean matchPass = false;
         String type = "";
 
         String URL = "jdbc:mysql://localhost:3306/csit228f2";
@@ -34,10 +36,12 @@ public class LoginScreen {
 
             while(resultSet.next()){
                 if(Objects.equals(resultSet.getString("name"), enteredName)){
-                    if(Objects.equals(resultSet.getString("password"), enteredPass))
-                    match = true;
-                    type = resultSet.getString("type");
-                    break;
+                    matchName = true;
+                    if(Objects.equals(resultSet.getString("password"), enteredPass)){
+                        matchPass = true;
+                        type = resultSet.getString("type");
+                        break;
+                    }
                 }
             }
 
@@ -45,12 +49,20 @@ public class LoginScreen {
             throw new RuntimeException(e);
         }
 
-        if(!match){
-            System.out.println("No such user in database!");
+        if(!matchName && !matchPass){
+            error.setText("No such user in database!");
+            return;
+        }
+        else if(!matchPass){
+            error.setText("Invalid password!");
+            return;
+        }
+        else if(!matchName){
+            error.setText("Invalid name!");
             return;
         }
 
         if(Objects.equals(type, "Student")) HelloApplication.MAIN_STAGE.setScene(Scenes.QUIZ_PROPER);
-        else if(Objects.equals(type, "Teacher")) HelloApplication.MAIN_STAGE.setScene(Scenes.QUIZ_PROPER);
+        else if(Objects.equals(type, "Teacher")) HelloApplication.MAIN_STAGE.setScene(Scenes.CRUD_QUESTIONS);
     }
 }

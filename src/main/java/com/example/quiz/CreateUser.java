@@ -1,6 +1,7 @@
 package com.example.quiz;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
@@ -17,6 +18,7 @@ public class CreateUser {
     public RadioButton studentRB;
     public RadioButton teacherRB;
     public String choice = "";
+    public Label error;
 
     public void back(){
         HelloApplication.MAIN_STAGE.setScene(Scenes.LOGIN_SCREEN);
@@ -43,7 +45,7 @@ public class CreateUser {
 
             if(!choice.isEmpty()) statement.setString(4, choice);
             else{
-                System.out.println("Must select type!");
+                error.setText("Must select type!");
                 return;
             }
 
@@ -54,6 +56,11 @@ public class CreateUser {
 
         }catch(SQLException e){
             throw new RuntimeException(e);
+        }
+
+        if(nameTF.getText().isEmpty() || passwordTF.getText().isEmpty() || emailTF.getText().isEmpty()){
+            error.setText("Must input all fields!");
+            return;
         }
 
         HelloApplication.MAIN_STAGE.setScene(Scenes.LOGIN_SCREEN);

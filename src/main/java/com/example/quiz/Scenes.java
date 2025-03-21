@@ -16,11 +16,15 @@ public class Scenes {
     static FXMLLoader quizfxml = new FXMLLoader(Scenes.class.getResource("quiz-view.fxml"));
     static Scene QUIZ_PROPER;
 
+    static FXMLLoader crudfxml = new FXMLLoader(Scenes.class.getResource("crud_questions.fxml"));
+    static Scene CRUD_QUESTIONS;
+
     static {
         try {
             QUIZ_PROPER = new Scene(quizfxml.load(), 600, 500);
             LOGIN_SCREEN = new Scene(loginfxml.load(), 600, 500);
             CREATE_USER = new Scene(createuserfxml.load(), 600, 500);
+            CRUD_QUESTIONS = new Scene(crudfxml.load(), 600, 500);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
