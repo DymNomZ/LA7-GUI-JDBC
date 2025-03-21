@@ -40,6 +40,7 @@ public class HelloController {
             ResultSet resultSet = statement.executeQuery(query);
 
             while(resultSet.next()){
+                int id = resultSet.getInt("id");
                 String question = resultSet.getString("question");
                 String choice_a = resultSet.getString("choice_a");
                 String choice_b = resultSet.getString("choice_b");
@@ -47,7 +48,7 @@ public class HelloController {
                 String choice_d = resultSet.getString("choice_d");
 
                 System.out.println("FROM QUIZ | " +  question + " " + choice_a + " " + choice_b + " " + choice_c + " " + choice_d);
-                questions.add(new Question(question, choice_a, choice_b, choice_c, choice_d));
+                questions.add(new Question(id, question, choice_a, choice_b, choice_c, choice_d));
             }
 
         }catch(SQLException e){

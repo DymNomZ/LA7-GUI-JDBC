@@ -43,11 +43,15 @@ public class CreateUser {
             statement.setString(2, emailTF.getText());
             statement.setString(3, passwordTF.getText());
 
-            if(!choice.isEmpty()) statement.setString(4, choice);
-            else{
+            if(nameTF.getText().isEmpty() || passwordTF.getText().isEmpty() || emailTF.getText().isEmpty()){
+                error.setText("Must input all fields!");
+                return;
+            }
+            else if(choice.isEmpty()) {
                 error.setText("Must select type!");
                 return;
             }
+            else statement.setString(4, choice);
 
             int rowsAffected = statement.executeUpdate();
             if(rowsAffected >= 1) {
@@ -56,11 +60,6 @@ public class CreateUser {
 
         }catch(SQLException e){
             throw new RuntimeException(e);
-        }
-
-        if(nameTF.getText().isEmpty() || passwordTF.getText().isEmpty() || emailTF.getText().isEmpty()){
-            error.setText("Must input all fields!");
-            return;
         }
 
         HelloApplication.MAIN_STAGE.setScene(Scenes.LOGIN_SCREEN);

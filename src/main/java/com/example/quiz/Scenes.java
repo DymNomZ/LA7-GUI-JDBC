@@ -19,12 +19,20 @@ public class Scenes {
     static FXMLLoader crudfxml = new FXMLLoader(Scenes.class.getResource("crud_questions.fxml"));
     static Scene CRUD_QUESTIONS;
 
+    static FXMLLoader addquesfxml = new FXMLLoader(Scenes.class.getResource("add_question.fxml"));
+    static Scene ADD_QUESTION;
+
+    static FXMLLoader editquesfxml = new FXMLLoader(Scenes.class.getResource("edit_question.fxml"));
+    static Scene EDIT_QUESTION;
+
     static {
         try {
             QUIZ_PROPER = new Scene(quizfxml.load(), 600, 500);
             LOGIN_SCREEN = new Scene(loginfxml.load(), 600, 500);
             CREATE_USER = new Scene(createuserfxml.load(), 600, 500);
             CRUD_QUESTIONS = new Scene(crudfxml.load(), 600, 500);
+            ADD_QUESTION = new Scene(addquesfxml.load(), 600 ,500);
+            EDIT_QUESTION = new Scene(editquesfxml.load(), 600, 500);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

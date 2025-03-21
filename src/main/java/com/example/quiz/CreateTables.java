@@ -14,6 +14,7 @@ public class CreateTables {
         try(Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
             PreparedStatement statement = connection.prepareStatement(
                     "CREATE TABLE users (" +
+                            "id INT PRIMARY KEY AUTO_INCREMENT," +
                             "name VARCHAR(50)," +
                             "email VARCHAR(50)," +
                             "password VARCHAR(50)," +
@@ -36,6 +37,7 @@ public class CreateTables {
         try(Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
             PreparedStatement statement = connection.prepareStatement(
                     "CREATE TABLE questions (" +
+                            "id INT PRIMARY KEY AUTO_INCREMENT," +
                             "question VARCHAR(100)," +
                             "choice_a VARCHAR(100)," +
                             "choice_b VARCHAR(100)," +

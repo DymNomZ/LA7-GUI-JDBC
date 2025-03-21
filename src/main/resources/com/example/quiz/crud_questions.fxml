@@ -14,20 +14,20 @@
          <font>
             <Font size="20.0" />
          </font></Label>
-      <ListView fx:id="questionsLV" prefHeight="200.0" prefWidth="200.0" />
+      <ListView fx:id="questionsLV" onMouseClicked="#onSelect" prefHeight="200.0" prefWidth="200.0" />
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
          <children>
-            <Button fx:id="addBtn" mnemonicParsing="false" text="Add">
+            <Button fx:id="addBtn" mnemonicParsing="false" onAction="#add" text="Add">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="editBtn" mnemonicParsing="false" text="Edit">
+            <Button fx:id="editBtn" mnemonicParsing="false" onAction="#edit" text="Edit">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="deleteBtn" mnemonicParsing="false" text="Delete">
+            <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#delete" text="Delete">
                <font>
                   <Font size="20.0" />
                </font>
@@ -41,6 +41,6 @@
       </HBox>
    </children>
    <padding>
-      <Insets top="20.0" />
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
 </VBox>

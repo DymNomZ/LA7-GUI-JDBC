@@ -9,7 +9,7 @@ import javafx.scene.control.ListView;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class CrudQuestions {
+public class CrudQuestions implements QuestionAddedListener {
 
     public Button addBtn;
     public Button editBtn;
@@ -17,6 +17,7 @@ public class CrudQuestions {
     public Button logoutBtn;
     public ListView<Question> questionsLV;
     ObservableList<Question> questions;
+    static Question selectedQuestion = null;
 
     public void initialize(){
 
@@ -36,6 +37,7 @@ public class CrudQuestions {
             ResultSet resultSet = statement.executeQuery(query);
 
             while(resultSet.next()){
+                int id = resultSet.getInt("id");
                 String question = resultSet.getString("question");
                 String choice_a = resultSet.getString("choice_a");
                 String choice_b = resultSet.getString("choice_b");
@@ -43,7 +45,7 @@ public class CrudQuestions {
                 String choice_d = resultSet.getString("choice_d");
 
                 System.out.println("FROM CRUD | " + question + " " + choice_a + " " + choice_b + " " + choice_c + " " + choice_d);
-                questions.add(new Question(question, choice_a, choice_b, choice_c, choice_d));
+                questions.add(new Question(id, question, choice_a, choice_b, choice_c, choice_d));
             }
 
         }catch(SQLException e){
@@ -52,16 +54,28 @@ public class CrudQuestions {
 
     }
 
+    @Override
+    public void onQuestionAdded() { // Implement listener method
+        initialize();
+    }
+
     public void logout(){
         HelloApplication.MAIN_STAGE.setScene(Scenes.LOGIN_SCREEN);
     }
 
-    public void add(){
+    public void onSelect() {
+        selectedQuestion = questionsLV.getSelectionModel().getSelectedItem();
+        System.out.println(selectedQuestion.question);
+    }
 
+    public void add(){
+        HelloApplication.MAIN_STAGE.setScene(Scenes.ADD_QUESTION);
+        AddQuestion addQuestionController = (AddQuestion) Scenes.addquesfxml.getController();
+        addQuestionController.listener = this;
     }
 
     public void edit(){
-
+        HelloApplication.MAIN_STAGE.setScene(Scenes.EDIT_QUESTION);
     }
 
     public void delete(){
