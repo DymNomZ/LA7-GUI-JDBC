@@ -12,7 +12,14 @@ public class LoginScreen {
     public TextField passwordTF;
     public Label error;
 
+    public void clear(){
+        nameTF.clear();
+        passwordTF.clear();
+        error.setText("");
+    }
+
     public void createAccount(){
+        clear();
         HelloApplication.MAIN_STAGE.setScene(Scenes.CREATE_USER);
     }
 
@@ -64,5 +71,7 @@ public class LoginScreen {
 
         if(Objects.equals(type, "Student")) HelloApplication.MAIN_STAGE.setScene(Scenes.QUIZ_PROPER);
         else if(Objects.equals(type, "Teacher")) HelloApplication.MAIN_STAGE.setScene(Scenes.CRUD_QUESTIONS);
+
+        clear();
     }
 }

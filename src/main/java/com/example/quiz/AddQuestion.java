@@ -22,6 +22,15 @@ public class AddQuestion {
 
     public QuestionAddedListener listener;
 
+    public void clear(){
+        questionTF.clear();
+        aTF.clear();
+        bTF.clear();
+        cTF.clear();
+        dTF.clear();
+        error.setText("");
+    }
+
     public void add(){
 
         String URL = "jdbc:mysql://localhost:3306/csit228f2";
@@ -69,6 +78,7 @@ public class AddQuestion {
     }
 
     public void cancel(){
+        clear();
         HelloApplication.MAIN_STAGE.setScene(Scenes.CRUD_QUESTIONS);
     }
 

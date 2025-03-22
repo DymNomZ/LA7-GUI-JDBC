@@ -25,6 +25,9 @@ public class Scenes {
     static FXMLLoader editquesfxml = new FXMLLoader(Scenes.class.getResource("edit_question.fxml"));
     static Scene EDIT_QUESTION;
 
+    static FXMLLoader congratsfxml = new FXMLLoader(Scenes.class.getResource("congratulations.fxml"));
+    static Scene CONGRATULATIONS;
+
     static {
         try {
             QUIZ_PROPER = new Scene(quizfxml.load(), 600, 500);
@@ -33,6 +36,7 @@ public class Scenes {
             CRUD_QUESTIONS = new Scene(crudfxml.load(), 600, 500);
             ADD_QUESTION = new Scene(addquesfxml.load(), 600 ,500);
             EDIT_QUESTION = new Scene(editquesfxml.load(), 600, 500);
+            CONGRATULATIONS = new Scene(congratsfxml.load(), 600, 500);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

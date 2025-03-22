@@ -72,29 +72,47 @@ public class HelloController {
     public void onNavigationClick(ActionEvent actionEvent){
 
         if(actionEvent.getSource() == btnBack){
+            if(page <= 1){
+                HelloApplication.MAIN_STAGE.setScene(Scenes.LOGIN_SCREEN);
+                score = 0;
+                lbScore.setText("Score: " + score + "/" + questions.size());
+                for(Button b : btnChoices){
+                    b.setBackground(Background.fill(Paint.valueOf("WHITE")));
+                }
+                return;
+            }
             page--;
         }else {
             if(page >= questions.size()){
-                HelloApplication.MAIN_STAGE.close();
+                Congratulations congratulations = (Congratulations) Scenes.congratsfxml.getController();
+                congratulations.setScore(String.format("%d", score));
+                HelloApplication.MAIN_STAGE.setScene(Scenes.CONGRATULATIONS);
+                page = 1;
+                loadItem();
+                score = 0;
+                lbScore.setText("Score: " + score + "/" + questions.size());
+                return;
             }
             page++;
         }
 
-        if(page <= questions.size()){
-            lbQuestion.setText("Question " + page + ": " + questions.get(page-1).question);
-            List<Button> btnClones = new ArrayList<>();
-            btnClones.add(btnA);
-            btnClones.add(btnB);
-            btnClones.add(btnC);
-            btnClones.add(btnD);
-            for(int i = 0; i < questions.get(page-1).choices.length; i++){
-                int rand = (int) (Math.random() * btnClones.size());
-                Button b = btnClones.remove(rand);
-                b.setText(questions.get(page-1).choices[i]);
-                b.setBackground(Background.fill(Paint.valueOf("WHITE")));
-            }
-        }
+        loadItem();
 
+    }
+
+    public void loadItem(){
+        lbQuestion.setText("Question " + page + ": " + questions.get(page-1).question);
+        List<Button> btnClones = new ArrayList<>();
+        btnClones.add(btnA);
+        btnClones.add(btnB);
+        btnClones.add(btnC);
+        btnClones.add(btnD);
+        for(int i = 0; i < questions.get(page-1).choices.length; i++){
+            int rand = (int) (Math.random() * btnClones.size());
+            Button b = btnClones.remove(rand);
+            b.setText(questions.get(page-1).choices[i]);
+            b.setBackground(Background.fill(Paint.valueOf("WHITE")));
+        }
     }
 
     public void onAnswerClick(ActionEvent actionEvent) {

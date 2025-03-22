@@ -20,7 +20,18 @@ public class CreateUser {
     public String choice = "";
     public Label error;
 
+    public void clear(){
+        nameTF.clear();
+        emailTF.clear();
+        passwordTF.clear();
+        studentRB.setSelected(false);
+        teacherRB.setSelected(false);
+        choice = "";
+        error.setText("");
+    }
+
     public void back(){
+        clear();
         HelloApplication.MAIN_STAGE.setScene(Scenes.LOGIN_SCREEN);
     }
 
@@ -56,12 +67,13 @@ public class CreateUser {
             int rowsAffected = statement.executeUpdate();
             if(rowsAffected >= 1) {
                 System.out.println("Successfully added " + rowsAffected + " rows");
+                clear();
+                HelloApplication.MAIN_STAGE.setScene(Scenes.LOGIN_SCREEN);
             }
 
         }catch(SQLException e){
             throw new RuntimeException(e);
         }
 
-        HelloApplication.MAIN_STAGE.setScene(Scenes.LOGIN_SCREEN);
     }
 }

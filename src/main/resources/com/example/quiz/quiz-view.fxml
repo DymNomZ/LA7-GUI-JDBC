@@ -13,11 +13,11 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
    <children>
-      <Label fx:id="lbQuestion" prefHeight="28.0" prefWidth="363.0" text="Question:">
+      <Label fx:id="lbQuestion" maxWidth="1.7976931348623157E308" prefHeight="28.0" prefWidth="363.0" text="Question:" wrapText="true">
          <font>
             <Font size="19.0" />
          </font></Label>
-      <Line endX="100.0" startX="-227.0" />
+      <Line endX="100.0" startX="-227.0" startY="-0.5768249034881592" />
       <HBox alignment="CENTER" prefHeight="34.0" prefWidth="219.0" spacing="10.0">
          <children>
             <Button fx:id="btnA" mnemonicParsing="false" onAction="#onAnswerClick" text="Button">
