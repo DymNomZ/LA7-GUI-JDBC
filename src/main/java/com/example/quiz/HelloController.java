@@ -22,12 +22,14 @@ public class HelloController {
     public Label lbQuestion;
     public List<Question> questions;
     public Button[] btnChoices;
+    public ArrayList<Boolean> answered;
     private int page = 1;
     private int score = 0;
 
     public void initialize(){
 
         questions = new ArrayList<>();
+        answered = new ArrayList<>();
 
         String URL = "jdbc:mysql://localhost:3306/csit228f2";
         String USER = "root";
@@ -49,6 +51,7 @@ public class HelloController {
 
                 System.out.println("FROM QUIZ | " +  question + " " + choice_a + " " + choice_b + " " + choice_c + " " + choice_d);
                 questions.add(new Question(id, question, choice_a, choice_b, choice_c, choice_d));
+                answered.add(false);
             }
 
         }catch(SQLException e){
@@ -118,16 +121,19 @@ public class HelloController {
     public void onAnswerClick(ActionEvent actionEvent) {
         String ans = ((Button) actionEvent.getSource()).getText();
 
-        if(Objects.equals(ans, questions.get(page - 1).choices[0])){
-            score++;
-            lbScore.setText("Score: " + score + "/" + questions.size());
-        }
-        for(Button b : btnChoices){
-            String item = b.getText();
-            if(Objects.equals(item, questions.get(page - 1).choices[0])){
-                b.setBackground(Background.fill(Paint.valueOf("GREEN")));
-            }else{
-                b.setBackground(Background.fill(Paint.valueOf("RED")));
+        if(!answered.get(page - 1)){
+            if(Objects.equals(ans, questions.get(page - 1).choices[0])){
+                score++;
+                lbScore.setText("Score: " + score + "/" + questions.size());
+                answered.set(page-1, true);
+            }
+            for(Button b : btnChoices){
+                String item = b.getText();
+                if(Objects.equals(item, questions.get(page - 1).choices[0])){
+                    b.setBackground(Background.fill(Paint.valueOf("GREEN")));
+                }else{
+                    b.setBackground(Background.fill(Paint.valueOf("RED")));
+                }
             }
         }
     }

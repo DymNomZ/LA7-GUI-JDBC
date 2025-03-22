@@ -8,33 +8,33 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quiz.CrudQuestions">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="20.0" style="-fx-background-color: #3c096c;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quiz.CrudQuestions">
    <children>
-      <Label text="Questions List">
+      <Label text="Questions List" textFill="WHITE">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="25.0" />
          </font></Label>
-      <ListView fx:id="questionsLV" onMouseClicked="#onSelect" prefHeight="200.0" prefWidth="200.0" />
+      <ListView fx:id="questionsLV" onMouseClicked="#onSelect" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #7209b7; -fx-text-fill: white; -fx-font-size: 15; -fx-font-weight: bold; -fx-padding: 10;" />
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
          <children>
-            <Button fx:id="addBtn" mnemonicParsing="false" onAction="#add" text="Add">
+            <Button fx:id="addBtn" mnemonicParsing="false" onAction="#add" style="-fx-background-color: #c77dff;" text="Add" textFill="WHITE">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="editBtn" mnemonicParsing="false" onAction="#edit" text="Edit">
+            <Button fx:id="editBtn" mnemonicParsing="false" onAction="#edit" style="-fx-background-color: #c77dff;" text="Edit" textFill="WHITE">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#delete" text="Delete">
+            <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#delete" style="-fx-background-color: #c77dff;" text="Delete" textFill="WHITE">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="logoutBtn" mnemonicParsing="false" onAction="#logout" text="Logout">
+            <Button fx:id="logoutBtn" mnemonicParsing="false" onAction="#logout" style="-fx-background-color: #c77dff;" text="Logout" textFill="WHITE">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
             </Button>
          </children>

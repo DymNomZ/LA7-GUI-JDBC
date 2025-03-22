@@ -5,55 +5,55 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="440.0" prefWidth="453.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quiz.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
+<VBox alignment="CENTER" prefHeight="503.0" prefWidth="603.0" spacing="20.0" style="-fx-background-color: #3c096c;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quiz.HelloController">
    <children>
-      <Label fx:id="lbQuestion" maxWidth="1.7976931348623157E308" prefHeight="28.0" prefWidth="363.0" text="Question:" wrapText="true">
+      <Label fx:id="lbQuestion" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="28.0" prefWidth="363.0" text="Question:" textFill="WHITE" wrapText="true">
          <font>
-            <Font size="19.0" />
+            <Font name="System Bold" size="25.0" />
          </font></Label>
-      <Line endX="100.0" startX="-227.0" startY="-0.5768249034881592" />
-      <HBox alignment="CENTER" prefHeight="34.0" prefWidth="219.0" spacing="10.0">
+      <HBox alignment="CENTER" prefHeight="34.0" prefWidth="219.0" spacing="10.0" style="-fx-background-color: #7209b7;">
          <children>
             <Button fx:id="btnA" mnemonicParsing="false" onAction="#onAnswerClick" text="Button">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="20.0" />
                </font></Button>
             <Button fx:id="btnB" mnemonicParsing="false" onAction="#onAnswerClick" text="Button">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="20.0" />
                </font></Button>
             <Button fx:id="btnC" mnemonicParsing="false" onAction="#onAnswerClick" text="Button">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="20.0" />
                </font></Button>
             <Button fx:id="btnD" mnemonicParsing="false" onAction="#onAnswerClick" text="Button">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="20.0" />
                </font></Button>
          </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
       </HBox>
-      <Line endX="100.0" startX="-210.1066131591797" startY="-0.20710676908493042" />
-      <Label fx:id="lbScore" prefHeight="31.0" prefWidth="189.0" text="Score">
+      <Label fx:id="lbScore" prefHeight="31.0" prefWidth="189.0" style="-fx-background-color: #3c096c;" text="Score" textFill="WHITE">
          <font>
-            <Font size="21.0" />
+            <Font name="System Bold" size="25.0" />
          </font></Label>
-      <HBox alignment="CENTER" prefHeight="31.0" prefWidth="219.0" spacing="100.0">
+      <HBox alignment="CENTER" prefHeight="31.0" prefWidth="219.0" spacing="20.0">
          <children>
-            <Button fx:id="btnBack" mnemonicParsing="false" onAction="#onNavigationClick" text="Back">
+            <Button fx:id="btnBack" mnemonicParsing="false" onAction="#onNavigationClick" style="-fx-background-color: #c77dff;" text="Back" textFill="WHITE">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="20.0" />
                </font></Button>
-            <Button fx:id="btnNext" mnemonicParsing="false" onAction="#onNavigationClick" text="Next">
+            <Button fx:id="btnNext" mnemonicParsing="false" onAction="#onNavigationClick" style="-fx-background-color: #c77dff;" text="Next" textFill="WHITE">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="20.0" />
                </font></Button>
          </children>
       </HBox>
    </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
 </VBox>

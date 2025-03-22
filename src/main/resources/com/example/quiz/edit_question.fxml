@@ -8,87 +8,90 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="506.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quiz.EditQuestion">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="506.0" prefWidth="600.0" spacing="20.0" style="-fx-background-color: #3c096c;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quiz.EditQuestion">
     <children>
-        <Label text="Edit Question:">
+        <Label text="Edit Question:" textFill="WHITE">
             <font>
-                <Font size="20.0" />
+                <Font name="System Bold" size="25.0" />
             </font>
+            <VBox.margin>
+                <Insets top="30.0" />
+            </VBox.margin>
         </Label>
-        <TextField fx:id="questionTF" alignment="CENTER" prefHeight="55.0" prefWidth="520.0">
+        <TextField fx:id="questionTF" alignment="CENTER" prefHeight="55.0" prefWidth="520.0" style="-fx-background-color: #7209b7; -fx-text-fill: white;">
             <VBox.margin>
                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </VBox.margin>
             <font>
-                <Font size="20.0" />
+                <Font name="System Bold" size="20.0" />
             </font>
         </TextField>
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
             <children>
-                <Label text="Choice A (Correct)">
+                <Label text="Choice A (Correct)" textFill="WHITE">
                     <font>
-                        <Font size="20.0" />
+                        <Font name="System Bold" size="20.0" />
                     </font>
                 </Label>
-                <TextField fx:id="aTF" alignment="CENTER" prefHeight="55.0" prefWidth="326.0">
+                <TextField fx:id="aTF" alignment="CENTER" prefHeight="55.0" prefWidth="326.0" style="-fx-background-color: #7209b7; -fx-text-fill: white;">
                     <font>
-                        <Font size="20.0" />
+                        <Font name="System Bold" size="20.0" />
                     </font>
                 </TextField>
             </children>
         </HBox>
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
             <children>
-                <Label prefHeight="30.0" prefWidth="160.0" text="Choice B">
+                <Label prefHeight="30.0" prefWidth="170.0" text="Choice B" textFill="WHITE">
                     <font>
-                        <Font size="20.0" />
+                        <Font name="System Bold" size="20.0" />
                     </font>
                 </Label>
-                <TextField fx:id="bTF" alignment="CENTER" prefHeight="55.0" prefWidth="326.0">
+                <TextField fx:id="bTF" alignment="CENTER" prefHeight="55.0" prefWidth="326.0" style="-fx-background-color: #7209b7; -fx-text-fill: white;">
                     <font>
-                        <Font size="20.0" />
+                        <Font name="System Bold" size="20.0" />
                     </font>
                 </TextField>
             </children>
         </HBox>
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
             <children>
-                <Label prefHeight="30.0" prefWidth="157.0" text="Choice C">
+                <Label prefHeight="30.0" prefWidth="167.0" text="Choice C" textFill="WHITE">
                     <font>
-                        <Font size="20.0" />
+                        <Font name="System Bold" size="20.0" />
                     </font>
                 </Label>
-                <TextField fx:id="cTF" alignment="CENTER" prefHeight="55.0" prefWidth="326.0">
+                <TextField fx:id="cTF" alignment="CENTER" prefHeight="55.0" prefWidth="326.0" style="-fx-background-color: #7209b7; -fx-text-fill: white;">
                     <font>
-                        <Font size="20.0" />
+                        <Font name="System Bold" size="20.0" />
                     </font>
                 </TextField>
             </children>
         </HBox>
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
             <children>
-                <Label prefHeight="30.0" prefWidth="153.0" text="Choice D">
+                <Label prefHeight="30.0" prefWidth="170.0" text="Choice D" textFill="WHITE">
                     <font>
-                        <Font size="20.0" />
+                        <Font name="System Bold" size="20.0" />
                     </font>
                 </Label>
-                <TextField fx:id="dTF" alignment="CENTER" prefHeight="55.0" prefWidth="326.0">
+                <TextField fx:id="dTF" alignment="CENTER" prefHeight="55.0" prefWidth="326.0" style="-fx-background-color: #7209b7; -fx-text-fill: white;">
                     <font>
-                        <Font size="20.0" />
+                        <Font name="System Bold" size="20.0" />
                     </font>
                 </TextField>
             </children>
         </HBox>
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
             <children>
-                <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#save" text="Save">
+                <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#save" style="-fx-background-color: #c77dff;" text="Save" textFill="WHITE">
                     <font>
-                        <Font size="20.0" />
+                        <Font name="System Bold" size="20.0" />
                     </font>
                 </Button>
-                <Button fx:id="cancelBtn" mnemonicParsing="false" onAction="#cancel" text="Cancel">
+                <Button fx:id="cancelBtn" mnemonicParsing="false" onAction="#cancel" style="-fx-background-color: #c77dff;" text="Cancel" textFill="WHITE">
                     <font>
-                        <Font size="20.0" />
+                        <Font name="System Bold" size="20.0" />
                     </font>
                 </Button>
             </children>
